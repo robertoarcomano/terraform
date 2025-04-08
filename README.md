@@ -28,3 +28,9 @@ terraform apply
 There is a bug related to libvirt images directory permissions.
 Please follow instructions related to Solution 2 at https://github.com/dmacvicar/terraform-provider-libvirt/issues/1163#issuecomment-2726569845 in order to fix it.
 
+# Help
+### Destroy a specific target
+```
+terraform destroy -target libvirt_volume.ubuntu_disk
+terraform destroy -target libvirt_domain.ubuntu_vm
+```

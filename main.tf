@@ -17,15 +17,26 @@ resource "libvirt_volume" "ubuntu_disk" {
   format = "qcow2"
 }
 
+resource "libvirt_volume" "cloud_init_iso" {
+  name   = "cloud_init.iso"
+  pool   = "default"
+  source = "cloud_init.iso"
+  format = "iso"
+}
+
 resource "libvirt_domain" "ubuntu_vm" {
   name   = "ubuntu_vm"
   memory = 1024
-  vcpu   = 1
+  vcpu   = 2
 
   disk {
     volume_id = libvirt_volume.ubuntu_disk.id
   }
 
+  disk {
+    volume_id = libvirt_volume.cloud_init_iso.id
+  }
+  
   network_interface {
     network_name = "default"
   }
