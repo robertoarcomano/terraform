@@ -1,6 +1,0 @@
-# user-data.yaml
-#cloud-config
-users:
-  - name: ubuntu
-    ssh-authorized-keys:
-      - ${file("/home/berto/.ssh/id_rsa.pub")}

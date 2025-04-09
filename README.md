@@ -12,9 +12,8 @@ Note: For Linux Mint you have to replace the part $(lsb_release -cs) with the ub
 Or else you can download the binary from https://releases.hashicorp.com/terraform/1.11.3/terraform_1.11.3_linux_amd64.zip
 
 ### Environment configuration
-Launch file [config.sh](config.sh) to:
-1. Download the ubuntu QCOW2 image
-2. Create and start the **default** network
+Launch file [network.sh](network.sh) to:
+2. (Re)Create and start the **default** network
 
 ## 2. Init / Plan / Apply
 Execute these commands:
@@ -31,6 +30,6 @@ Please follow instructions related to Solution 2 at https://github.com/dmacvicar
 # Help
 ### Destroy a specific target
 ```
-terraform destroy -target libvirt_volume.ubuntu_disk
-terraform destroy -target libvirt_domain.ubuntu_vm
+terraform destroy -target libvirt_volume.vm_volume
+terraform destroy -target libvirt_domain.vm
 ```
