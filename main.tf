@@ -87,11 +87,11 @@ resource "libvirt_domain" "vm" {
 
 # Output
 output "vm_name" {
-  value = libvirt_domain.vm.name
+  value       = libvirt_domain.vm.name
   description = "Il nome della VM creata"
 }
 
 output "connection_instructions" {
-  value = "Connettiti alla VM usando: ssh ubuntu@<IP_ADDRESS> (quando disponibile)"
+  value       = "Connettiti alla VM usando: ssh ubuntu@<IP_ADDRESS> (quando disponibile)"
   description = "Istruzioni per la connessione"
 }
