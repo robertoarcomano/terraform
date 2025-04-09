@@ -41,7 +41,7 @@ libvirt_volume.vm_volume
 <details>
   <summary>Show</summary>
 
-    ```berto@lap:~/src/terraform$ terraform show
+    berto@lap:~/src/terraform$ terraform show
     # data.template_file.user_data:
     data "template_file" "user_data" {
         id       = "1c376eee49a4042e8deff73c54d04230e466187f69c784b96d6703d18a968e4f"
@@ -190,7 +190,6 @@ libvirt_volume.vm_volume
 
     connection_instructions = "Connettiti alla VM usando: ssh ubuntu@<IP_ADDRESS> (quando disponibile)"
     vm_name = "terraform-vm"
-    ```
 
 </details>
 
