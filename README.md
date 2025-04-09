@@ -12,8 +12,7 @@ Note: For Linux Mint you have to replace the part $(lsb_release -cs) with the ub
 Or else you can download the binary from https://releases.hashicorp.com/terraform/1.11.3/terraform_1.11.3_linux_amd64.zip
 
 ### Environment configuration
-Launch file [network.sh](network.sh) to:
-2. (Re)Create and start the **default** network
+Launch file [network.sh](network.sh) to (re)create and start the **default** network
 
 ## 2. Init / Plan / Apply
 Execute these commands:
