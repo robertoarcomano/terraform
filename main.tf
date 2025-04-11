@@ -15,6 +15,14 @@ locals {
   pool_name = "default" # Usa il pool standard di libvirt che esiste già
 }
 
+variable "site" {
+  type = string
+  default = "www.robertoarcomano.com"
+  description = "my website"
+  sensitive = false
+  nullable = false
+}
+
 # Volume base per l'immagine del sistema operativo
 resource "libvirt_volume" "base_volume" {
   name   = "base-volume"
@@ -45,6 +53,7 @@ data "template_file" "user_data" {
         home: /home/ubuntu
         shell: /bin/bash
         lock_passwd: false
+        password: "$6$6Ojewgn3GbjdDfFk$tBbZ2RzgiBexWqWtaLcPKusS/TGmr9q97z95Zu.DXyrV9tro0AjsCrTG5SvcbLh6xxCuFOIBXtRpz3A.LLXq61"
         ssh_authorized_keys:
         - ${file("~/.ssh/id_rsa.pub")}
     EOF
@@ -60,7 +69,7 @@ resource "libvirt_cloudinit_disk" "cloud_init" {
 resource "libvirt_domain" "vm" {
   name   = "terraform-vm"
   memory = "2048"
-  vcpu   = 3
+  vcpu   = 4
 
   cloudinit = libvirt_cloudinit_disk.cloud_init.id
 
@@ -94,4 +103,9 @@ output "vm_name" {
 output "connection_instructions" {
   value       = "Connettiti alla VM usando: ssh ubuntu@<IP_ADDRESS> (quando disponibile)"
   description = "Istruzioni per la connessione"
+}
+
+output "website" {
+  value       = var.site
+  description = "Website"
 }
