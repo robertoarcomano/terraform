@@ -32,19 +32,19 @@ data "template_file" "user_data" {
     EOF
 }
 resource "libvirt_cloudinit_disk" "cloud_init" {
-  name      = "cloud-init.iso"
+  name      = "cloud-init-${var.name}.iso"
   pool      = var.pool_disk
   user_data = data.template_file.user_data.rendered
 }
 resource "libvirt_volume" "base_volume" {
-  name = "base-volume"
+  name = "base-volume-${var.name}"
   pool = var.pool_disk
   # source = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
   source = "/var/lib/libvirt/images/ubuntu-20.04.qcow2"
   format = "qcow2"
 }
 resource "libvirt_volume" "vm_volume" {
-  name           = "vm-volume"
+  name           = "vm-volume-${var.name}"
   base_volume_id = libvirt_volume.base_volume.id
   pool           = var.pool_disk
   size           = local.disk_size_bytes
