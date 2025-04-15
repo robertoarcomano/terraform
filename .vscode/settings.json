@@ -1,0 +1,16 @@
+{
+  "command-runner.commands": [
+    {
+      "label": "Terraform Init",
+      "command": "terraform init"
+    },
+    {
+      "label": "Terraform Plan",
+      "command": "terraform plan"
+    },
+    {
+      "label": "Terraform Apply",
+      "command": "terraform apply -auto-approve"
+    }
+  ]
+}

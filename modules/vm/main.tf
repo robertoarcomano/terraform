@@ -29,8 +29,6 @@ data "template_file" "user_data" {
         password: "$6$6Ojewgn3GbjdDfFk$tBbZ2RzgiBexWqWtaLcPKusS/TGmr9q97z95Zu.DXyrV9tro0AjsCrTG5SvcbLh6xxCuFOIBXtRpz3A.LLXq61"
         ssh_authorized_keys:
         - ${file("~/.ssh/id_rsa.pub")}
-    runcmd:
-      - apt update && apt install -y mc
     EOF
 }
 resource "libvirt_cloudinit_disk" "cloud_init" {

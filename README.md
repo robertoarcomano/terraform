@@ -203,3 +203,8 @@ Please follow instructions related to Solution 2 at https://github.com/dmacvicar
 terraform destroy -target libvirt_volume.vm_volume
 terraform destroy -target libvirt_domain.vm
 ```
+### Enable the log
+```
+export TF_LOG_PATH=~/src/terraform/log
+export TF_LOG=TRACE
+```
