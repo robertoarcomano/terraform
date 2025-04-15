@@ -20,5 +20,5 @@ variable "disk_size" {
 
 variable "pool_disk" {
   type    = string
-  default = "pool_disk"
+  default = "default"
 }

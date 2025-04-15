@@ -6,11 +6,6 @@ terraform {
     }
   }
 }
-
-provider "libvirt" {
-  uri = "qemu:///system"
-}
-
 locals {
   disk_size_bytes    = var.disk_size * 1024 * 1024 * 1024
   ram_size_megabytes = var.memory * 1024
